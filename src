@@ -1,0 +1,90 @@
+import React from 'react'
+import {StatusBar} from 'react-native'
+import ScrollableTabView from 'react-native-scrollable-tab-view'
+import Chats from '../../Screen/chatt/HomeChat'
+import Calls from '../../Screen/call/Home'
+
+
+// Main Component
+class Home extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      Chats: [],
+      Calls: [],
+    }
+  }
+  render () {
+    console.disableYellowBox = true; 
+    const { search } = this.state
+    return (
+          <ScrollableTabView
+            style={styles.ScrollableTabView}
+            tabBarUnderlineStyle={
+              (style = { backgroundColor: '#000', height: 2 })
+            }
+            tabBarActiveTextColor='#000'
+            tabBarInactiveTextColor='#88b0ac'
+            initialPage={0}
+          >
+            <Chats
+              tabLabel='CHATS'
+              ChatsData={this.state.Chats}
+              {...this.props}
+            />
+
+            <Calls
+              tabLabel='CALLS'
+              CallsData={this.state.Calls}
+              {...this.props}
+            />
+          </ScrollableTabView>
+   
+      </View>
+    )
+  }
+}
+
+export default Home
+
+=============================================================================================================================
+//ScreenChat.js
+
+import React from 'react'
+import {StatusBar, View} from 'react-native'
+
+// Main Component
+class Home extends React.Component {
+  render () {
+    console.disableYellowBox = true; 
+    const { search } = this.state
+    return (
+    <View>
+      <Text>Screen Chat</Text>
+    </View>
+    )
+  }
+}
+
+export default Home
+
+=============================================================================================================================
+//ScreenCall.js
+
+import React from 'react'
+import {StatusBar, View} from 'react-native'
+
+// Main Component
+class Home extends React.Component {
+  render () {
+    console.disableYellowBox = true; 
+    const { search } = this.state
+    return (
+    <View>
+      <Text>Screen Call</Text>
+    </View>
+    )
+  }
+}
+
+export default Home
